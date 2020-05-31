@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yelp Camp</title>
+    <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel = "stylesheet" type="text/css" href="/stylesheets/main.css">
+</head>
+<body>
+<div style ="margin-bottom: 5rem">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-50">
+        <!-- navbar-expand-lg means the burger icon will expand into contents when entered large -->
+        <!-- this class can be changed to md sm etc as per requirement and is compulsory -->
+            <a class="navbar-brand" href="/">YelpCamp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- data target and the id of the div element inside which we have the content or the ul which needs to be collapsed has to be same -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/">About</a>
+                      </li>
+                </ul>
+                <ul class="navbar-nav">
+                  <%  if(!currentUser){ %>
+                    <% console.log("if") %>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Sign Up</a>
+                        </li>
+                   <% }else{ %>
+                    <% console.log("else") %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="$">Signed In As <%= currentUser.username %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                   <% } %>    
+                </ul>
+            </div>
+    </nav>
+</div>
+
+<div class="container">
+    <% if(error && error.length >0) {%>
+
+        <div class="alert alert-danger" role="alert">
+                <%=error%>
+        </div>
+     <% } %>   
+     <% if(success && success.length >0) { %>
+        <div class="alert alert-success" role="alert">
+                <%=success%>
+     </div>    
+     <%} %>
+        
+</div>
+
+
+    

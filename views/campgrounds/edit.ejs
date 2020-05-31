@@ -1,0 +1,35 @@
+<%- include ("../partials/header") %>
+
+
+<div class="container" style=" width: 50%; margin: 0 auto;">
+        <h1>Edit <%=campground.name%></h1>
+        <div style="margin: 20px 0">
+            <form  action="/campgrounds/<%=campground._id%>?_method=PUT"  method="POST">
+                    <div class="form-group">
+                        <label for="name">Camp Name</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="campground[name]" value="<%= campground.name %>">
+                        <small id="nameHelp" class="form-text text-muted">Edit the Campground name here.</small>
+                    </div>
+                    <div class="form-group">
+                            <label for="name">Price</label>
+                            <input type="number" class="form-control" id="price" aria-describedby="priceHelp" name="campground[price]" min="0.01" step="0.01" value="<%= campground.price %>">
+                            <small id="priceHelp" class="form-text text-muted">Add in the approx Price of the camping trip. </small>
+                        </div>
+                    <div class="form-group">
+                        <label for="image">Image url</label>
+                        <input type="text" class="form-control" id="image" name="campground[image]" value="<%= campground.image %>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" name="campground[description]" value="<%= campground.description %>">
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                
+            </form>
+        </div>
+        <a href="/campgrounds">Go back to view Camp grounds</a>
+    
+</div>
+
+<%- include ("../partials/footer") %>
