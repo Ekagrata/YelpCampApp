@@ -10,7 +10,8 @@ router.get("/",(req, res)=>{
             console.log(err);
         }
         else{
-            res.render("campgrounds/index", {campgrounds : campgrounds, currentUser: req.user});
+            console.log("else in /campgrounds")
+            res.render("campgrounds/index", {campgrounds : campgrounds});
         }
     })
 });
